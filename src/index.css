@@ -2,11 +2,18 @@
 
 @import 'tailwindcss';
 
-*{
-  font-family: Inter;
+@font-face {
+  font-family: "MainFont";
+  src: url("/fonts/main.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme {
+  --font-main: "MainFont", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+
   --color-primary: #ffffff;
   --color-onPrimary: #363636;
   --color-secondary: #d2d2d2;
@@ -18,10 +25,10 @@
   .section{ @apply min-h-screen px-4 bg-primary flex flex-col items-center justify-center text-center gap-8; }
 
 
-  .heading  { @apply text-center text-5xl sm:text-6xl md:text-8xl text-onPrimary  font-bold mb-10 text-balance; }
-  .heading2  { @apply text-center text-3xl sm:text-4xl md:text-5xl font-bold mt-10 max-w-3xl text-balance; }
-  .subheading { @apply text-center text-lg md:text-8xl text-secondary font-bold pt-10; }
-  .paragraph { @apply text-center text-lg md:text-xl text-secondary font-light pt-10 max-w-5xl; }
+  .heading  { @apply text-center text-5xl sm:text-6xl md:text-9xl text-onPrimary font-main font-bold mb-10 text-balance; }
+  .heading2  { @apply text-center text-3xl sm:text-4xl md:text-6xl text-onPrimary font-main font-bold mt-10 max-w-3xl text-balance; }
+  .subheading { @apply text-center text-lg md:text-9xl text-secondary font-main font-bold pt-10 max-w-2/3; }
+  .paragraph { @apply text-center text-lg md:text-xl text-secondary font-inter font-light pt-10 max-w-5xl; }
 
 
   .btn        { @apply text-onPrimary text-lg font-bold inline-flex items-center gap-2 rounded-full px-9 py-3 mt-10 transition shadow-md; }
