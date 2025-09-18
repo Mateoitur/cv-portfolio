@@ -21,7 +21,7 @@
 
 @layer components {
   .hero     { @apply min-h-screen mb-4 bg-cover bg-center flex flex-col items-center justify-center w-full overflow-hidden bg-primary; }
-  .avatar   { @apply rounded-full shadow-2xl size-40 sm:size-50 md:size-70 ring-4 ring-white/70; }
+  .avatar   { @apply rounded-3xl shadow-2xl/50 size-40 sm:size-50 md:size-70; }
   .section{ @apply min-h-screen px-4 bg-primary flex flex-col items-center justify-center text-center gap-8; }
 
 
