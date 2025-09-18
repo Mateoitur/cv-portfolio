@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import 'tailwindcss';
+
+*{
+  font-family: Inter;
+}
+
+@theme {
+  --color-primary: #ffffff;
+  --color-onPrimary: #363636;
+  --color-secondary: #d2d2d2;
+}
+
+@layer components {
+  .hero     { @apply min-h-screen mb-4 bg-cover bg-center flex flex-col items-center justify-center w-full overflow-hidden bg-primary; }
+  .avatar   { @apply rounded-full shadow-2xl size-40 sm:size-50 md:size-70 ring-4 ring-white/70; }
+  .section{ @apply min-h-screen px-4 bg-primary flex flex-col items-center justify-center text-center gap-8; }
+
+
+  .heading  { @apply text-center text-5xl sm:text-6xl md:text-7xl text-onPrimary  font-bold mt-10 max-w-3xl text-balance; }
+  .heading2  { @apply text-center text-3xl sm:text-4xl md:text-5xl font-bold mt-10 max-w-3xl text-balance; }
+  .subheading { @apply text-center text-lg md:text-3xl text-secondary font-bold pt-10 max-w-xl; }
+  .paragraph { @apply text-center text-lg md:text-xl text-secondary font-light pt-10 max-w-5xl; }
+
+
+  .btn        { @apply text-onPrimary text-lg font-bold inline-flex items-center gap-2 rounded-full px-9 py-3 mt-10 transition shadow-md; }
+  .btn-primary{ @apply bg-secondary; }
+  .btn-outline{ @apply border border-secondary; }
+  .btn-icon   { @apply size-4; }
+  .btn-nav    { @apply flex items-center justify-center h-12 w-12 rounded-full hover:bg-gray-100 transition; }
+  .btn-nav-icon{ @apply size-5; }
+}
