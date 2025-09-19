@@ -1,18 +1,22 @@
 import React, { useEffect } from "react"
+import { motion } from "framer-motion";
+import { FadeUp, Stagger, item } from "./anim/Reveal"
 
 const About = () => {
 
   return (
-    <div
-      id="About"
-      className="min-h-screen flex flex-col items-center justify-center text-center"
-    >
-      <h1 id="about-title" className="text-5xl font-bold">
-        About Me
-      </h1>
-      <p className="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-      </p>
+    <div className="section" id="About">
+
+        <h1 className="heading2">About Me</h1>
+
+        <p className="paragraph">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+        </p>
+
     </div>
   )
 }
