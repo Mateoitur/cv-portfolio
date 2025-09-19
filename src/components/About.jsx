@@ -1,22 +1,11 @@
 import React, { useEffect } from "react"
-import { motion } from "framer-motion";
-import { FadeUp, Stagger, item } from "./anim/Reveal"
 
 const About = () => {
 
   return (
     <div className="section" id="About">
-
         <h1 className="heading2">About Me</h1>
-
-        <p className="paragraph">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-        </p>
-
+        <p className='paragraph'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi viverra cursus sapien, ut aliquet mauris vehicula eu. Vivamus enim urna, varius eget justo id, dignissim vulputate risus. Suspendisse lobortis neque at neque efficitur viverra. Curabitur sed augue ultricies, scelerisque sem sit amet, malesuada odio. Pellentesque varius ac nisl vel fringilla. Etiam eleifend accumsan turpis, in viverra mauris euismod ut. Nulla imperdiet interdum velit id molestie. Vivamus non erat id eros feugiat vulputate. Praesent vitae nibh commodo, vulputate ligula vitae, venenatis nibh. Ut ultrices arcu justo, id aliquam leo sagittis non. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus pulvinar non purus ut rutrum. Pellentesque egestas risus ac nulla iaculis blandit. Nunc finibus metus est, quis semper nisi rutrum vitae. Nunc tempor libero id nunc finibus sollicitudin. Nullam accumsan felis sit amet orci condimentum, semper blandit lacus lacinia. Sed purus neque, suscipit a nisl ac, tincidunt pharetra nisi. Maecenas sit amet fermentum risus. Phasellus varius vel lorem id semper. Proin sit amet ipsum ac mi feugiat ultrices. Cras condimentum lorem magna, ac tincidunt lectus auctor sed. Sed purus ipsum, molestie nec mollis quis, pharetra vitae lorem. Proin mi ex, porttitor quis augue vitae, porta varius magna. Donec quis arcu erat. Mauris ut finibus lacus, id laoreet eros. Integer sit amet metus ex. Etiam purus arcu, tincidunt quis convallis non, iaculis sit amet sapien. Donec a cursus mauris, sed mollis tortor. Aliquam pellentesque ex a velit luctus semper. Suspendisse ac tincidunt est, non elementum orci. Integer at metus eu lorem interdum feugiat. Phasellus nec leo vitae nisi pulvinar malesuada vel ultrices felis. Nullam in metus mi. Donec felis justo, facilisis nec convallis eu, fringilla sed purus. Mauris id mauris tellus. Phasellus dolor diam, porttitor eu feugiat at, accumsan quis erat. Nullam vitae scelerisque nisi, a ornare odio. Praesent eget nulla blandit, dapibus magna at, volutpat nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget lorem nisi. Integer ullamcorper a sapien vel pretium. Etiam ullamcorper dictum lacus et facilisis. Nunc et semper tortor. In ut metus id tortor commodo ultricies eget in erat.</p>
     </div>
   )
 }
