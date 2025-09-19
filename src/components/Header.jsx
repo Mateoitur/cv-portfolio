@@ -2,6 +2,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { use, useRef } from 'react'
+import { useSectionAnimation } from './animations/UseSectionAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,22 +10,7 @@ const Header = () => {
 
   const root = useRef(null);
 
-  useGSAP(() => {
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: root.current,
-        start: "top 75%",
-        toggleActions: "restart none restart none"
-      },
-      defaults: { ease: "back"},
-    });
-
-    tl.fromTo('.text', {opacity: 0, y: 30}, {opacity: 1, y: 0, stagger: 0.2})
-    .fromTo('.img', {opacity: 0, scale:0}, {opacity: 1, scale:1}, "<")
-    .fromTo('.text2', {opacity: 0,}, {opacity: 1, delay: 0.6, duration: 2}, "<")
-
-  }, { scope: root })
+  useSectionAnimation(root, { text: true, img: true, text2: true });
 
   return (
     <div ref={root} className='hero' id='Home'>
