@@ -17,6 +17,7 @@
     "motion": "^12.23.14",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-parallax-tilt": "^1.7.308",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {

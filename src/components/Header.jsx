@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { use, useRef } from 'react'
 import { useSectionAnimation } from './animations/UseSectionAnimation';
+import InteractiveAvatar from './InteractiveAvatar';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,7 +23,7 @@ const Header = () => {
 
       <div class='flex-1 flex flex-col items-center justify-center'>
         <h1 class='heading text'>MATEO ITURMENDI</h1>
-        <img class='avatar img' src="./headshot.JPG" alt="" />
+        <InteractiveAvatar src="./headshot.JPG" />
         <h2 class='heading text-secondary text'>LEARNING TO DESIGN, INNOVATE & CREATE</h2>
       </div>
 
