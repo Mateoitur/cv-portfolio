@@ -22,7 +22,7 @@ const Header = () => {
       </div>
 
       <div class='flex-1 flex flex-col items-center justify-center'>
-        <h1 class='heading text'>MATEO ITURMENDI</h1>
+        <h1 class='heading text'>MATEO ITUR GAM</h1>
         <InteractiveAvatar src="./headshot.JPG" />
         <h2 class='heading text-secondary text'>LEARNING TO DESIGN, INNOVATE & CREATE</h2>
       </div>
