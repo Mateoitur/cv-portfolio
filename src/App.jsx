@@ -12,7 +12,7 @@ import Contact from './components/Contact'
 const App = () => {
 
   return (
-    <div className='w-full overflow-x-hidden'>
+    <div className='w-full overflow-show'>
       <Header />
       <About />
       <Portfolio />

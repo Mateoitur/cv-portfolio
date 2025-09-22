@@ -22,7 +22,7 @@
 @layer components {
   .hero     { @apply flex flex-col items-center justify-center w-full overflow-hidden bg-primary; }
   .avatar   { @apply rounded-3xl shadow-2xl/50 size-[clamp(10rem,15vw,17rem)]; }
-  .section{ @apply my-50 px-4 bg-primary flex flex-col items-center justify-center text-center; }
+  .section{ @apply my-50 bg-primary flex flex-col items-center justify-center text-center; }
   .small-section{ @apply flex-1 flex flex-col justify-center py-6}
 
 
@@ -40,4 +40,11 @@
   .btn-icon   { @apply size-4; }
   .btn-nav    { @apply flex items-center justify-center h-12 w-12 rounded-full hover:bg-gray-100 transition; }
   .btn-nav-icon{ @apply size-5; }
+
+  .img-carrousel{ @apply h-120 w-auto object-contain rounded-2xl mb-5; }
+
+  /* Hide horizontal scrollbar but keep scrollability */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 }
