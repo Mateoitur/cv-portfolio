@@ -29,7 +29,7 @@ export default function ThemeToggle() {
         "transition-transform duration-200 ease-out",
         "hover:scale-105 active:scale-95",
         // base shadow/focus
-        "shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/70",
+        "shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 cursor-pointer",
       ].join(" ")}
     >
       {/* Icon swap with smooth crossfade/scale */}

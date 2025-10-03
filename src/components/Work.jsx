@@ -6,7 +6,7 @@ const Work = () => {
         Some of my creations
       </h2>
 
-      <div className='w-full relative flex overflow-x-auto gap-10 justify-center no-scrollbar'></div>
+      <div className='w-full flex overflow-x-auto justify-center '></div>
     </div>
   )
 }
