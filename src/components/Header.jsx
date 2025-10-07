@@ -12,7 +12,7 @@ const Header = () => {
         <h1 class='heading'>MATEO ITUR GAM</h1>
         <img
           className='avatar 3inline-block rounded-3xl shadow-2xl will-change-transform select-none z-10'
-          src='./headshot.JPG'
+          src='./images/headshot.JPG'
           alt=''
         />
         <h2 class='heading text-secondary-foreground'>

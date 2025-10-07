@@ -27,7 +27,7 @@ export default function ThemeToggle() {
         "bg-secondary-foreground text-primary-foreground",
         // motion
         "transition-transform duration-200 ease-out",
-        "hover:scale-105 active:scale-95",
+        "hover:scale-105 active:scale-90",
         // base shadow/focus
         "shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 cursor-pointer",
       ].join(" ")}
