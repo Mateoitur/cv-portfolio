@@ -4,32 +4,17 @@ const Work = () => {
   const cards = [
     {
       title: "Klimate App",
-      img: "../images/klimate1.png",
+      img: "../images/work/klimate1.png",
       link: "https://klimate-weather.onrender.com/",
     },
     {
       title: "Estate Web",
-      img: "../images/estate1.png",
+      img: "../images/work/estate1.png",
       link: "https://estate-m-i-g.onrender.com/",
     },
     {
       title: "Voyagr",
-      img: "../images/voyagr1.png",
-      link: "https://voyagr-wgh9.onrender.com/",
-    },
-    {
-      title: "Voyagr",
-      img: "../images/voyagr1.png",
-      link: "https://voyagr-wgh9.onrender.com/",
-    },
-    {
-      title: "Voyagr",
-      img: "../images/voyagr1.png",
-      link: "https://voyagr-wgh9.onrender.com/",
-    },
-    {
-      title: "Voyagr",
-      img: "../images/voyagr1.png",
+      img: "../images/work/voyagr1.png",
       link: "https://voyagr-wgh9.onrender.com/",
     },
   ]
@@ -41,7 +26,7 @@ const Work = () => {
       </h2>
 
       <div className='w-full flex overflow-x-auto overflow-y-hidden scrollbar-none'>
-        <div className='mx-auto flex w-max gap-x-6 px-6 pt-10 pb-20'>
+        <div className='mx-auto flex w-max gap-x-[clamp(50px,15vw,200px)] px-6 pt-10 pb-20'>
           {cards.map((c, i) => (
             <div key={i}>
               <AppleCard {...c} />
