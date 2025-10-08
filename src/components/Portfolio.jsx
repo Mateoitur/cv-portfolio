@@ -1,4 +1,5 @@
-import React, { useMemo } from "react"
+import React from "react"
+import { motion as m } from "framer-motion"
 
 const Portfolio = () => {
   const modules = import.meta.glob(
@@ -18,11 +19,14 @@ const Portfolio = () => {
       </h2>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-[clamp(5px,10vw,120px)] md:gap-[clamp(5px,10vw,120px)] mx-auto max-w-[clamp(200px,90vw,1000px)]'>
         {gallery.map((src) => (
-          <img
+          <m.img
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.04 }}
             key={src}
             src={src}
             loading='lazy'
-            className='rounded-xl shadow-2xl hover:scale-102 transition-transform'
+            className='rounded-xl shadow-2xl'
           />
         ))}
       </div>

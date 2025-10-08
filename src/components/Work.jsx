@@ -1,4 +1,5 @@
 import AppleCard from "./ui/AppleCards"
+import { motion as m } from "framer-motion"
 
 const Work = () => {
   const cards = [
@@ -28,9 +29,14 @@ const Work = () => {
       <div className='w-full flex overflow-x-auto overflow-y-hidden scrollbar-none'>
         <div className='mx-auto flex w-max gap-x-[clamp(50px,15vw,200px)] px-6 pt-10 pb-20'>
           {cards.map((c, i) => (
-            <div key={i}>
+            <m.div
+              key={i}
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
               <AppleCard {...c} />
-            </div>
+            </m.div>
           ))}
         </div>
       </div>
