@@ -208,7 +208,7 @@
   }
 
   .heading {
-    @apply text-center text-[clamp(2rem,9vw,8rem)] leading-[1] text-primary-foreground font-main text-balance max-w-4/5 m-10;
+    @apply text-center text-[clamp(2rem,7vw,8rem)] leading-[1] text-primary-foreground font-main text-balance max-w-4/5 m-10;
   }
   .heading2 {
     @apply text-center text-4xl md:text-6xl text-primary-foreground font-main;

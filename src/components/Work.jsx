@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useRef, useCallback } from "react"
+import { useEffect, useMemo, useRef, useCallback, useState } from "react"
 import AppleCard from "./ui/AppleCards"
 import { motion as m } from "framer-motion"
+import { flushSync } from "react-dom"
 
 const Work = () => {
   const cards = [
@@ -32,19 +33,34 @@ const Work = () => {
   )
 
   const scrollerRef = useRef(null)
-  const segmentRef = useRef(null)
+  const firstRef = useRef(null)
+  const boundaryRef = useRef(null) // item at index cards.length
   const segmentWidthRef = useRef(0)
+  const [wrapping, setWrapping] = useState(false)
 
   useEffect(() => {
-    const seg = segmentRef.current
     const scroller = scrollerRef.current
-    if (!seg || !scroller) return
+    if (!scroller) return
 
-    requestAnimationFrame(() => {
-      segmentWidthRef.current = seg.offsetWidth
-      scroller.scrollLeft = segmentWidthRef.current
-    })
-  }, [])
+    const recompute = () => {
+      if (!firstRef.current || !boundaryRef.current) return
+      const newSegW =
+        boundaryRef.current.offsetLeft - firstRef.current.offsetLeft
+      if (!newSegW) return
+
+      const prevSegW = segmentWidthRef.current || newSegW
+      // keep the same relative position across segments
+      const progress = scroller.scrollLeft / prevSegW
+
+      segmentWidthRef.current = newSegW
+      scroller.scrollLeft = progress * newSegW
+    }
+
+    // compute now and on resize
+    recompute()
+    window.addEventListener("resize", recompute)
+    return () => window.removeEventListener("resize", recompute)
+  }, [cards.length])
 
   const onScroll = useCallback(() => {
     const scroller = scrollerRef.current
@@ -52,18 +68,39 @@ const Work = () => {
     if (!scroller || !segW) return
 
     const x = scroller.scrollLeft
-    // Use comfortable buffers so the jump is never visible
+    const maxX = scroller.scrollWidth - scroller.clientWidth
     const leftEdge = segW * 0.25
-    const rightEdge = segW * (2 + 0.75) // near end of 3rd copy
+    const rightEdge = maxX - segW * 0.25
 
     if (x < leftEdge) {
-      // jumped too far left -> push forward by one segment
+      flushSync(() => setWrapping(true))
       scroller.scrollLeft = x + segW
+      requestAnimationFrame(() =>
+        // keep it alive for 2 frames
+        requestAnimationFrame(() => setWrapping(false))
+      )
     } else if (x > rightEdge) {
-      // scrolled too far right -> pull back by one segment
+      flushSync(() => setWrapping(true))
       scroller.scrollLeft = x - segW
+      requestAnimationFrame(() =>
+        // keep it alive for 2 frames
+        requestAnimationFrame(() => setWrapping(false))
+      )
     }
   }, [])
+
+  const appear = {
+    hidden: (skip) => ({
+      opacity: 0,
+      scale: skip ? 1 : 0.7, // ← when wrapping, stay at full scale
+      transition: { duration: 0.6 }, // instant on wrap
+    }),
+    visible: (skip) => ({
+      opacity: 1,
+      scale: 1,
+      transition: skip ? { duration: 0 } : { type: "spring", bounce: 0.4 },
+    }),
+  }
 
   return (
     <div className='section' id='Work'>
@@ -75,47 +112,30 @@ const Work = () => {
       <div
         ref={scrollerRef}
         onScroll={onScroll}
-        className='w-full flex overflow-x-auto overflow-y-hidden scrollbar-none'
+        className='w-full flex overflow-x-auto overflow-y-hidden scrollbar-none px-6'
       >
         {/* segment A */}
-        <div
-          ref={segmentRef}
-          className='mx-auto flex w-max gap-x-[clamp(50px,15vw,200px)] px-6 pt-10 pb-20'
-        >
-          {cards.map((c, i) => (
+        <div className='flex w-max items-center gap-x-[clamp(50px,15vw,200px)] pt-10 pb-20'>
+          {looped.map((c, i) => (
             <m.div
               key={i}
-              className='will-change-transform will-change-opacity transform-gpu'
-              initial={{ opacity: 0, scale: 0.7 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-            >
-              <AppleCard {...c} />
-            </m.div>
-          ))}
-        </div>
-
-        {/* segment B */}
-        <div className='mx-auto flex w-max gap-x-[clamp(50px,15vw,200px)] px-6 pt-10 pb-20'>
-          {cards.map((c, i) => (
-            <m.div
-              key={`B-${i}`}
-              initial={{ opacity: 0, scale: 0.7 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              className='will-change-transform will-change-opacity transform-gpu'
-            >
-              <AppleCard {...c} />
-            </m.div>
-          ))}
-        </div>
-
-        {/* segment C */}
-        <div className='mx-auto flex w-max gap-x-[clamp(50px,15vw,200px)] px-6 pt-10 pb-20'>
-          {cards.map((c, i) => (
-            <m.div
-              key={`C-${i}`}
-              initial={{ opacity: 0, scale: 0.7 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              className='will-change-transform will-change-opacity transform-gpu'
+              ref={i === 0 ? firstRef : i === cards.length ? boundaryRef : null}
+              className='will-change-transform will-change-opacity transform-gpu origin-center shrink-0 [backface-visibility:hidden] [transform-style:preserve-3d]'
+              variants={appear}
+              initial={wrapping ? false : "hidden"}
+              whileInView='visible'
+              animate={wrapping ? "visible" : undefined}
+              viewport={
+                wrapping
+                  ? false // ← disables whileInView during the wrap jump → no flash
+                  : {
+                      once: false,
+                      amount: 0.25,
+                      margin: "0px 0px 20% 0px",
+                      root: scrollerRef,
+                    }
+              }
+              custom={wrapping}
             >
               <AppleCard {...c} />
             </m.div>
