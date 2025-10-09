@@ -5,18 +5,23 @@ const Work = () => {
   const cards = [
     {
       title: "Klimate App",
-      img: "../images/work/klimate1.png",
+      img: "../images/showcase/klimate.png",
       link: "https://klimate-weather.onrender.com/",
     },
     {
       title: "Estate Web",
-      img: "../images/work/estate1.png",
+      img: "../images/showcase/estate.png",
       link: "https://estate-m-i-g.onrender.com/",
     },
     {
       title: "Voyagr",
-      img: "../images/work/voyagr1.png",
+      img: "../images/showcase/voyagr.png",
       link: "https://voyagr-wgh9.onrender.com/",
+    },
+    {
+      title: "Tribe",
+      img: "../images/showcase/tribe.png",
+      link: "https://tribe-light.onrender.com/",
     },
   ]
   return (
