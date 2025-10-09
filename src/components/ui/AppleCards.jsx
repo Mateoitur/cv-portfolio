@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 export default function AppleCard({ title, img, link }) {
   return (
     <div className='flex flex-col items-center'>
-      <article className='relative aspect-square w-[clamp(350px,55vw,500px)] rounded-3xl overflow-hidden'>
+      <article className='relative aspect-square w-[clamp(300px,55vw,500px)] rounded-3xl overflow-hidden'>
         <img
           src={img}
           alt={title}

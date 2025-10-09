@@ -7,7 +7,7 @@ import { MotionConfig } from "framer-motion"
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MotionConfig transition={{ type: "spring", bounce: 0.4, duration: 0.6 }}>
+    <MotionConfig transition={{ type: "spring", bounce: 0.4, duration: 0.8 }}>
       <ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
         <App />
       </ThemeProvider>
