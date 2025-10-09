@@ -2,6 +2,7 @@
 import { useTheme } from "@/components/Theme" // keep your existing hook path
 import { Moon, Sun } from "lucide-react"
 import { useMemo } from "react"
+import { motion } from "framer-motion"
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -14,22 +15,21 @@ export default function ThemeToggle() {
   )
 
   return (
-    <button
+    <motion.button
       type='button'
       onClick={() => setTheme(nextTheme)}
       aria-label={label}
       title={label}
       aria-pressed={isDark}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
       className={[
         "fixed right-5 bottom-5 z-50",
         "h-12 w-12 rounded-full",
         // surface + border that adapts to your tokens
         "bg-secondary-foreground text-primary-foreground",
-        // motion
-        "transition-transform duration-200 ease-out",
-        "hover:scale-105 active:scale-90",
         // base shadow/focus
-        "shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 cursor-pointer",
+        "shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 cursor-pointer",
       ].join(" ")}
     >
       {/* Icon swap with smooth crossfade/scale */}
@@ -51,6 +51,6 @@ export default function ThemeToggle() {
           ].join(" ")}
         />
       </span>
-    </button>
+    </motion.button>
   )
 }

@@ -20,7 +20,7 @@ const Portfolio = () => {
       <div className='grid grid-cols-2 md:grid-cols-3 gap-[clamp(5px,10vw,120px)] md:gap-[clamp(5px,10vw,120px)] mx-auto max-w-[clamp(200px,90vw,1000px)]'>
         {gallery.map((src) => (
           <m.img
-            initial={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0.4 }}
             whileInView={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.04 }}
             key={src}
