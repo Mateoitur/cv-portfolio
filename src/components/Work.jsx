@@ -115,7 +115,7 @@ const Work = () => {
         className='w-full flex overflow-x-auto overflow-y-hidden scrollbar-none px-6'
       >
         {/* segment A */}
-        <div className='flex w-max items-center gap-x-[clamp(50px,15vw,200px)] pt-10 pb-20'>
+        <div className='flex w-max items-center gap-x-[clamp(20px,10vw,200px)] pt-10 pb-20'>
           {looped.map((c, i) => (
             <m.div
               key={i}
