@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useCallback, useState } from "react"
 import AppleCard from "./ui/AppleCards"
 import { motion as m } from "framer-motion"
 import { flushSync } from "react-dom"
+import SplitText from "./ui/SplitText"
 
 const Work = () => {
   const cards = [
@@ -104,10 +105,16 @@ const Work = () => {
 
   return (
     <div className='section' id='Work'>
-      <h1 className='heading2 '>MY WORK</h1>
-      <h2 className='text-md text-onPrimary mt-1 mb-10'>
+      <SplitText className='heading2 ' text='MY WORK' />
+      <m.h2
+        className='text-md text-onPrimary mt-1 mb-10'
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 2 }}
+      >
         Some of my creations
-      </h2>
+      </m.h2>
 
       <div
         ref={scrollerRef}

@@ -21,7 +21,7 @@ const Contact = () => {
 
   return (
     <section ref={sectionRef} id='Contact' className='relative h-[200vh]'>
-      <div className='sticky top-0 h-screen bg-neutral-300 rounded-2xl overflow-hidden'>
+      <div className='sticky top-0 h-screen bg-secondary-foreground overflow-hidden'>
         <div className='relative h-full flex items-end justify-center'>
           <m.h1
             style={{
